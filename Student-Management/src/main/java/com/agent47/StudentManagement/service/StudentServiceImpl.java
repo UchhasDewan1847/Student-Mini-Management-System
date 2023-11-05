@@ -87,7 +87,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public String removeByName(String firstName){
-        Student student = studentRepository.findByFirstName ContainingIgnoreCase(firstName)
+        Student student = studentRepository.findByFirstNameContainingIgnoreCase(firstName)
                   .orElseThrow(() -> new ResponseStatusException(HttpStatus.BAD_REQUEST, "Not found anything with this name : " + firstName));
         studentRepository.delete(student);
         return "Successful Deletion";
